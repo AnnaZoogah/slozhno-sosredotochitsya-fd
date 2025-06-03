@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  font-family: var(--font-family);
+  font-family: var(--font-family), monospace;
   background-color: var(--bg-color);
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   background-image: var(--bg-image);
@@ -25,7 +25,7 @@
   top: 10px;
   right: 40px;
   color: var(--decorated-element-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight);
   line-height: 25px;
   text-transform: uppercase;
@@ -39,7 +39,7 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  box-shadow: 0px 0px 4px var(--decorated-element-color);
+  box-shadow: 0px 0px 4px 2px var(--decorated-element-color);
   background-color: var(--decorated-element-color);
 }
 
@@ -102,7 +102,7 @@
 
 .header__theme-menu-item {
   color: var(--menu-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight);
   font-size: var(--main-font-size);
   line-height: 100%;
@@ -111,7 +111,7 @@
 
 .header__title {
   color: var(--header-title-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight-bold);
   font-size: var(--header-title-font-size);
   line-height: 82.5%;
@@ -120,7 +120,7 @@
 
 .title-decor {
   color: var(--title-decor-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight-bold);
   font-size: var(--main-font-size);
   line-height: 130%;
@@ -132,7 +132,7 @@
 
 .cards__title {
   color: var(--subtitles-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight-bold);
   font-size: var(--main-font-size);
   line-height: 130%;
@@ -140,7 +140,7 @@
 
 .article__title {
   color: var(--title-decor-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight-bold);
   font-size: var(--main-font-size);
   line-height: 130%;
@@ -148,7 +148,7 @@
 
 .content_text {
   color: var(--main-text-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight);
   font-size: var(--main-font-size);
   line-height: 130%;
@@ -168,6 +168,11 @@
 .articles-what,
 .articles-how {
   padding-top: 50px;
+}
+
+.article-what-section {
+  display: grid;
+  gap: 20px;
 }
 
 .article {
@@ -196,7 +201,7 @@
 }
 
 .link:focus-visible {
-  border-bottom: 1px solid var(--main-text-color);
+  outline: 1px solid var(--main-text-color);
 }
 
 .list-advices {
@@ -236,7 +241,7 @@
 .footer__title {
   --text-shadow: 2px 2px 0 var(--accent-color);
   color: var(--header-title-color);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-family), monospace;
   font-weight: var(--font-weight-bold);
   font-size: var(--header-title-font-size);
   line-height: 82.5%;
@@ -306,14 +311,13 @@
   }
 
   .articles-what {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(4, min-content);
     gap: 20px;
   }
 
   .articles-what .cards__title {
+    display: grid;
+    grid-template-columns: min-content 1fr;
     grid-column: 1;
-    grid-row: 1;
   }
 
   .articles-what .article {
@@ -424,22 +428,21 @@
     grid-template-columns: 32% 66%;
   }
 
-  .articles-what {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: min-content 1fr;
+  .article-what-section {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .articles-what .cards__title {
+    grid-template-columns: repeat(3, 1fr);
     grid-column: 1;
-    grid-row: 1;
   }
 
-  .articles-what .article {
+  .article-what-section .article {
     grid-column: auto;
-    grid-row: 2;
   }
 
   .footer {
     min-block-size: 768px;
   }
 }
+
